@@ -18,6 +18,8 @@ $(document).ready(function() {
   $("form").submit(function(event) {
     event.preventDefault();
     $("ul#receipt").empty(newOrder);
+    $('#container1').slideUp();
+    $('#container2').show(1000);
 
     var inputtedStyle = parseFloat($('#piStyle').val());
     var inputtedBread = parseFloat($('#piBread').val());
@@ -37,7 +39,9 @@ $(document).ready(function() {
     var newOrder = new Order(inputtedStyle, inputtedBread, inputtedSize, inputtedQuantity);
 
 // cartToppings +
-    $('ul#receipt').append(cartQuantity + ' ' + cartSize + ' ' + cartBread + ' ' + cartStyle + ' ' + newOrder.totalPrice());
+    $('h4#receiptDescription').append('You ordered ' + cartQuantity + ' ' + cartSize + ' ' + cartBread + ' ' + cartStyle);
+
+    $('h4#receiptTotal').append('Your total comes to ' + newOrder.totalPrice());
   });
   $("#classicTitle").click(function() {
     event.preventDefault();

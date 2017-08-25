@@ -51,6 +51,30 @@ h3 {
   box-shadow: 0 3px 0 0 #b52b27;
 }
 
+#container2 {
+  display: none;
+}
+
+#receiptTitle {
+  color: #d9534f;
+  text-align: center;
+}
+
+#receiptDescription {
+  color: #d9534f;
+  text-align: center;
+}
+
+#receiptTotal {
+  color: #d9534f;
+  text-align: center;
+}
+
+#thanks {
+  color: #d9534f;
+  text-align: center;
+}
+
 /*#piStyle {
   width: ;
 }
