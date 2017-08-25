@@ -61,18 +61,22 @@ h3 {
 }
 
 #receiptDescription {
-  color: #d9534f;
   text-align: center;
 }
 
 #receiptTotal {
-  color: #d9534f;
   text-align: center;
 }
 
 #thanks {
   color: #d9534f;
   text-align: center;
+}
+
+.well {
+  background-color: white;
+  outline-style: dashed;
+  outline-color: #d9534f;
 }
 
 /*#piStyle {

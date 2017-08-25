@@ -1,5 +1,6 @@
 // back-end logic
-function Order(style, bread, size, quantity, toppings) {
+// , toppings
+function Order(style, bread, size, quantity) {
   this.piStyle = style;
   this.piBread = bread;
   this.piSize = size;
@@ -25,20 +26,20 @@ $(document).ready(function() {
     var inputtedBread = parseFloat($('#piBread').val());
     var inputtedSize = parseFloat($('#piSize').val());
     var inputtedQuantity = parseFloat($('#piQuantity').val());
-    // var inputtedToppings = parseFloat($('.piToppings:checked').val());
+    // var inputtedToppings = $('.piToppings:checked').val();
 
     var cartStyle = $('#piStyle option:selected').text();
     var cartBread = $('#piBread option:selected').text();
     var cartSize = $('#piSize option:selected').text();
     var cartQuantity = $('#piQuantity option:selected').text();
-    // var cartToppings = $('.piToppings:checked').text();
+    // var cartToppings = $('label[for="cb-"]').text();
     // console.log(inputtedToppings);
     // console.log(cartToppings);
 
-// , inputtedToppings
+
     var newOrder = new Order(inputtedStyle, inputtedBread, inputtedSize, inputtedQuantity);
 
-// cartToppings +
+// + cartToppings
     $('h4#receiptDescription').append('You ordered ' + cartQuantity + ' ' + cartSize + ' ' + cartBread + ' ' + cartStyle);
 
     $('h4#receiptTotal').append('Your total comes to ' + newOrder.totalPrice());
