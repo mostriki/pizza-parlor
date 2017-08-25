@@ -1,0 +1,9 @@
+
+.jumbotron {
+  background-color: white;
+  text-align: center;
+}
+
+#coverPhoto {
+  max-width: 100%;
+}
