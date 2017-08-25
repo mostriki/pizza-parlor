@@ -1,13 +1,13 @@
 // back-end logic
 function Pizza(movie, time, age, quantity) {
+  this.piQuantity = quantity;
   this.piStyle = style;
   this.piSize = size;
   this.piToppings = toppings;
-  this.piQuantity = quantity;
 }
 
 Pizza.prototype.totalPrice = function() {
-  return '$' + ((this.piStyle + this.piSize) - this.piToppings) * this.piQuantity + '.00';
+  return '$' + (((this.piStyle + this.piSize) + this.piToppings) * this.piQuantity) + '.00';
 }
 
 // front-end logic
@@ -17,19 +17,19 @@ $(document).ready(function() {
     event.preventDefault();
     $("ul#receipt").empty(newTicket);
 
-    var inputtedStyle =
-    var inputtedSize =
-    var inputtedToppings =
-    var inputtedQuantity =
+    var inputtedQuantity = parseFloat($('#piQuantity').val());
+    var inputtedStyle = parseFloat($('#piStyle').val());
+    var inputtedSize = parseFloat($('#piSize').val());
+    var inputtedToppings = parseFloat($('#piToppings').val());
 
-    var cartStyle =
-    var cartSize =
-    var cartoppings =
-    var cartQuantity =
+    var cartQuantity = $('#piQuantity option:selected').text();
+    var cartStyle = $('#piStyle option:selected').text();
+    var cartSize = $('#piSize option:selected').text();
+    var cartoppings = $('#piToppings option:selected').text();
 
-    var newOrder = new Order(inputtedStyle, inputtedSize, inputtedToppings, inputtedQuantity);
+    var newOrder = new Order(inputtedQuantity, inputtedStyle, inputtedSize, inputtedToppings);
 
-    $('ul#receipt').append( + newOrder.totalPrice());
+    $('ul#receipt').append(cartQuantity + '' + cartStyle + '' + cartSize + '' + cartoppings + '' + newOrder.totalPrice());
   });
 
 });
