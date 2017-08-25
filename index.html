@@ -19,38 +19,54 @@
         <div class="col-sm-4">
 
         </div>
-        <div class="col-sm-2">
-          <h2>Meat</h2>
-        </div>
-        <div class="col-sm-2">
-          <h2>Vegan</h2>
+        <div class="col-sm-4">
+          <div class="row">
+            <div id="classicTitle" class="col-sm-4">
+              <h3>Classic</h3>
+            </div>
+            <div id="veggieTitle" class="col-sm-4">
+              <h3>Veggie</h3>
+            </div>
+            <div id="veganTitle" class="col-sm-4">
+              <h3>Vegan</h3>
+            </div>
+          </div>
         </div>
         <div class="col-sm-4">
 
         </div>
       </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="classic">
+            <h4>Our take on the classic red sauce and pepperoni.</h4>
+          </div>
+          <div id="veggie">
+            <h4>Seasonally produced fresh vegtable.</h4>
+          </div>
+          <div id="vegan">
+            <h4>The best of both worlds, without the guilt.</h4>
+          </div>
+        </div>
+      </div><br><br>
 <!-- style options section end-->
-<!-- style choices section -->
-
-<!-- style choices section end-->
 <!-- order form section -->
       <form id="orderForm">
 
         <div class="form-group">
-          <label for="piQuantity">How Many?</label>
-          <select class="form-control" id="piQuantity">
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
+          <label for="piStyle">Choose Your Style:</label>
+          <select class="form-control" id="piStyle">
+            <option value="10">Classic Pizza</option>
+            <option value="10">Vegan Pizza</option>
+            <option value="10">Veggie Pizza</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="piStyle">Choose Your Style:</label>
-          <select class="form-control" id="piStyle">
-            <option value="12">Meat Pie</option>
-            <option value="14">Vegan Pie</option>
+          <label for="piBread">Choose Your Bread:</label>
+          <select class="form-control" id="piBread">
+            <option value="2">Extra Gluten</option>
+            <option value="4">Gluten Free</option>
           </select>
         </div>
 
@@ -61,6 +77,16 @@
             <option value="4">Regular</option>
             <option value="6">Large</option>
             <option value="8">Jumbo</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="piQuantity">Choose Your Quantity:</label>
+          <select class="form-control" id="piQuantity">
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
           </select>
         </div>
 
