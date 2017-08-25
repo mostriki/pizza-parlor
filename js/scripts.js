@@ -1,11 +1,12 @@
 // back-end logic
-function Order(quantity, style, size) {
+function Order(quantity, style, size, toppings) {
   this.piQuantity = quantity;
   this.piStyle = style;
   this.piSize = size;
   // this.piToppings = toppings;
 }
-// + this.piToppings
+
+ // + this.piToppings
 Order.prototype.totalPrice = function() {
   return '$' + ((this.piStyle + this.piSize) * this.piQuantity) + '.00';
 }
@@ -20,17 +21,19 @@ $(document).ready(function() {
     var inputtedQuantity = parseFloat($('#piQuantity').val());
     var inputtedStyle = parseFloat($('#piStyle').val());
     var inputtedSize = parseFloat($('#piSize').val());
-    // var inputtedToppings = parseFloat($('#piToppings').val());
+    // var inputtedToppings = parseFloat($('.piToppings:checked').val());
 
     var cartQuantity = $('#piQuantity option:selected').text();
     var cartStyle = $('#piStyle option:selected').text();
     var cartSize = $('#piSize option:selected').text();
-    // var cartoppings = $('#piToppings option:selected').text();
+    // var cartToppings = $('.piToppings:checked').text();
+    // console.log(inputtedToppings);
+    // console.log(cartToppings);
 
 // , inputtedToppings
     var newOrder = new Order(inputtedQuantity, inputtedStyle, inputtedSize);
 
- // + cartoppings + ''
-    $('ul#receipt').append(cartQuantity + ' ' + cartSize + ' ' + cartStyle + ' ' + newOrder.totalPrice());
+// cartToppings +
+    $('ul#receipt').append(cartQuantity + ' ' + cartSize + ' ' + cartStyle + ' ' + ' ' + newOrder.totalPrice());
   });
 });
