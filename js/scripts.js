@@ -5,12 +5,21 @@ function Order(style, bread, size, quantity) {
   this.piBread = bread;
   this.piSize = size;
   this.piQuantity = quantity;
-  // this.piToppings = toppings;
+  this.piToppings = toppings;
 }
 
- // + this.piToppings
+
 Order.prototype.totalPrice = function() {
-  return '$' + ((this.piStyle + this.piBread + this.piSize) * this.piQuantity) + '.00';
+  return '$' + ((this.piStyle + this.piBread + this.piSize) * this.piQuantity  + this.piToppings);
+}
+
+var inputtedToppings = 0
+
+function toppings() {
+  $('input[type=checkbox]:checked').each(function() {
+    inputtedToppings += parseFloat($(this).val());
+  });
+  console.log(inputtedToppings);
 }
 
 // front-end logic
@@ -26,18 +35,17 @@ $(document).ready(function() {
     var inputtedBread = parseFloat($('#piBread').val());
     var inputtedSize = parseFloat($('#piSize').val());
     var inputtedQuantity = parseFloat($('#piQuantity').val());
-    // var inputtedToppings = $('.piToppings:checked').val();
+    toppings();
 
     var cartStyle = $('#piStyle option:selected').text();
     var cartBread = $('#piBread option:selected').text();
     var cartSize = $('#piSize option:selected').text();
     var cartQuantity = $('#piQuantity option:selected').text();
-    // var cartToppings = $('label[for="cb-"]').text();
-    // console.log(inputtedToppings);
+    // var cartToppings = $('input[name="cheese"]').text();
     // console.log(cartToppings);
 
 
-    var newOrder = new Order(inputtedStyle, inputtedBread, inputtedSize, inputtedQuantity);
+    var newOrder = new Order(inputtedStyle, inputtedBread, inputtedSize, inputtedQuantity, inputtedToppings);
 
 // + cartToppings
     $('h4#receiptDescription').append('You ordered ' + cartQuantity + ' ' + cartSize + ' ' + cartBread + ' ' + cartStyle);
