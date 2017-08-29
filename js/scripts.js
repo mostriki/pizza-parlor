@@ -11,7 +11,7 @@ function Order(style, bread, size, quantity) {
 
 Order.prototype.totalPrice = function() {
   return '$' + ((this.piStyle + this.piBread + this.piSize) * this.piQuantity  + this.piToppings);
-}
+};
 
 var inputtedToppings = 0
 
