@@ -12,14 +12,14 @@ _Create a website for a pizza company where users can purchase sizes and topping
 
 | Description        | Input           | Output  |
 | ------------- |:-------------:| -----:|
-| Create forms for pizza types and toppings      | n/a | n/a |
-| Take values/choices to generate a total cost      | Toppings      |   $1 |
-| Print a receipt | Large Pizza, Olives      |    Pizza: $25 |
-| Create UX      | Pizza + Toppings | Toggle Receipt |
-| Add images      | n/a | n/a |
-| Allow users to order more than one pizza.       | 1 Small, 1 Large | $50 |
-| Add links to pizzas for more information      | n/a | n/a |
-| Add Delivery Option Address Form      | n/a | n/a |
+| Can calculate pizza price based on style | classic pizza | $10.00 |
+| Can calculate pizza price based on bread | classic pizza, gluten free | $4.00 |
+| Can calculate pizza price based on size | classic pizza, gluten free, large | $6.00 |
+| Can calculate pizza price based on quantity | classic pizza, gluten free, large, quantity 2 | $40.00 |
+| Can calculate pizza price based on multiple toppings | red sauce, pepperoni | $2.00 |
+| Can calculate total price based on all values | classic pizza, gluten free, large, quantity 2, red sauce, pepperoni | $44.00 |
+| Can show toggle an itemized receipt | classic pizza, gluten free, large, quantity 2, red sauce, pepperoni | You ordered two, large, gluten free, classic pizzas with, red sauce, and pepperoni for $44.00 |
+
 
 ## Setup/Installation Requirements
 
