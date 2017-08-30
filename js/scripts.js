@@ -41,7 +41,7 @@ $(document).ready(function() {
 
 //grab values from checkboxes
   $('input[type=checkbox]:checked').each(function(index, checkbox) {
-    newOrder.addTopping(parseFloat($(checkbox).val()), checkbox.name);
+    newOrder.addTopping(parseFloat($(checkbox).val()));
   });
 
 //describes order items on receipt
@@ -58,12 +58,14 @@ $(document).ready(function() {
     $("#veggie").hide(800);
     $("#vegan").hide(800);
   });
+
   $("#veggieTitle").click(function() {
     event.preventDefault();
     $("#classic").hide(800);
     $("#veggie").show(800);
     $("#vegan").hide(800);
   });
+
   $("#veganTitle").click(function() {
     event.preventDefault();
     $("#classic").hide(800);
