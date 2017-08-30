@@ -1,11 +1,12 @@
 // back-end logic
-// , toppings
+//constructor to capture pizza choices
 function Order(style, bread, size, quantity) {
   this.piStyle = style;
   this.piBread = bread;
   this.piSize = size;
   this.piQuantity = quantity;
-  this.piToppings = toppings;
+  this.piToppings = 0;
+  this.piToppingsName = [];
 }
 
 
@@ -13,20 +14,14 @@ Order.prototype.totalPrice = function() {
   return '$' + ((this.piStyle + this.piBread + this.piSize) * this.piQuantity  + this.piToppings);
 };
 
-var inputtedToppings = 0
 
-function toppings() {
-  $('input[type=checkbox]:checked').each(function() {
-    inputtedToppings += parseFloat($(this).val());
-  });
-  console.log(inputtedToppings);
-}
 
 // front-end logic
 $(document).ready(function() {
 
   $("form").submit(function(event) {
     event.preventDefault();
+  
     $("ul#receipt").empty(newOrder);
     $('#container1').slideUp();
     $('#container2').show(1000);
@@ -35,23 +30,23 @@ $(document).ready(function() {
     var inputtedBread = parseFloat($('#piBread').val());
     var inputtedSize = parseFloat($('#piSize').val());
     var inputtedQuantity = parseFloat($('#piQuantity').val());
-    toppings();
 
     var cartStyle = $('#piStyle option:selected').text();
     var cartBread = $('#piBread option:selected').text();
     var cartSize = $('#piSize option:selected').text();
     var cartQuantity = $('#piQuantity option:selected').text();
-    // var cartToppings = $('input[name="cheese"]').text();
-    // console.log(cartToppings);
 
+//new order block
+    var newOrder = new Order(inputtedStyle, inputtedBread, inputtedSize, inputtedQuantity);
 
-    var newOrder = new Order(inputtedStyle, inputtedBread, inputtedSize, inputtedQuantity, inputtedToppings);
-
-// + cartToppings
+//describes order items on receipt
     $('h4#receiptDescription').append('You ordered ' + cartQuantity + ' ' + cartSize + ' ' + cartBread + ' ' + cartStyle);
 
+//calculates order total on receipt
     $('h4#receiptTotal').append('Your total comes to ' + newOrder.totalPrice());
   });
+
+  //show/hide pizza type descriptions
   $("#classicTitle").click(function() {
     event.preventDefault();
     $("#classic").show(800);
