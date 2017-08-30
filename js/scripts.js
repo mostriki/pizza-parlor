@@ -11,9 +11,12 @@ function Order(style, bread, size, quantity) {
 
 
 Order.prototype.totalPrice = function() {
-  return '$' + ((this.piStyle + this.piBread + this.piSize) * this.piQuantity  + this.piToppings);
+  return '$' + ((this.piStyle + this.piBread + this.piSize + this.piToppings) * this.piQuantity);
 };
 
+Order.prototype.addTopping = function(value) {
+  this.piToppings += value;
+}
 
 
 // front-end logic
@@ -21,7 +24,7 @@ $(document).ready(function() {
 
   $("form").submit(function(event) {
     event.preventDefault();
-  
+
     $("ul#receipt").empty(newOrder);
     $('#container1').slideUp();
     $('#container2').show(1000);
@@ -38,6 +41,12 @@ $(document).ready(function() {
 
 //new order block
     var newOrder = new Order(inputtedStyle, inputtedBread, inputtedSize, inputtedQuantity);
+
+  $('input[type=checkbox]:checked').each(function(index, checkbox) {
+    newOrder.addTopping(parseFloat($(checkbox).val()),
+    checkbox.name);
+    console.log(checkbox);
+  });
 
 //describes order items on receipt
     $('h4#receiptDescription').append('You ordered ' + cartQuantity + ' ' + cartSize + ' ' + cartBread + ' ' + cartStyle);
