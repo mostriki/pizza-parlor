@@ -5,14 +5,21 @@ function Order(style, bread, size, quantity) {
   this.piSize = size;
   this.piQuantity = quantity;
   this.piToppings = 0;
+  this.piToppingNames = [];
 }
 
 Order.prototype.totalPrice = function() {
-  return '$' + ((this.piStyle + this.piBread + this.piSize + this.piToppings) * this.piQuantity);
-}
+  var total = '$' + ((this.piStyle + this.piBread + this.piSize + this.piToppings) * this.piQuantity);
+  return total;
+};
 
-Order.prototype.addTopping = function(value) {
+Order.prototype.addTopping = function(value, name) {
   this.piToppings += value;
+  this.piToppingNames.push(name);
+};
+
+Order.prototype.toppingDescription = function() {
+  return this.piToppingNames.join(', ');
 }
 
 // front-end logic
@@ -41,11 +48,13 @@ $(document).ready(function() {
 
 //grab values from checkboxes
   $('input[type=checkbox]:checked').each(function(index, checkbox) {
-    newOrder.addTopping(parseFloat($(checkbox).val()));
+    newOrder.addTopping(parseFloat($(checkbox).val()), checkbox.name);
   });
 
 //describes order items on receipt
     $('h4#receiptDescription').append('You ordered ' + cartQuantity + ' ' + cartSize + ' ' + cartBread + ' ' + cartStyle);
+
+    $('h4#receiptToppings').append('with toppings: ' + newOrder.toppingDescription() + '.');
 
 //calculates order total on receipt
     $('h4#receiptTotal').append('Your total comes to ' + newOrder.totalPrice());
